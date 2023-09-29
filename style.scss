@@ -18,45 +18,8 @@ $border-dark: #524e47;
 $selected-dark: color-mix(in srgb, $bg-dark 80%, black 20%);
 $hover-dark: color-mix(in srgb, $bg-dark 95%, black 5%);
 
-//Element Special Colors
-
-
-
-
-//Elements 
+//Element properties
 $height: 5rem;
-
-* {margin: 0; text-decoration: none;}
-
-body {
-    background-color: $bg-light;
-    font-family: Anton;
-}
-
-.darkMode {
-    background-color: $bg-dark;
-    nav {
-        background-color: $bg-menu-dark;
-        border-color: $border-dark;
-        a {
-            &:hover{
-                background-color: $selected-dark;
-                border-bottom: 0.3rem solid $main;
-            }
-        }
-        .selected {
-            background-color: $selected-dark;
-        }
-    }
-    footer {
-        background-color: $bg-menu-dark;
-        border-color: $border-dark;
-    }
-    .content {
-        background-color: $bg-content-dark;
-        border-color: $border-dark;
-    }
-}
 
 ::-webkit-scrollbar {
     width: 6px;
@@ -73,6 +36,74 @@ body {
     border-radius: 10px;
 }
 
+@mixin content-template {
+    background-color: $bg-content-light;
+    width: 60%;
+    margin: auto;
+    min-height: 70vh;
+    color: $main;
+    padding: 2rem;
+    font-size: 1.5rem;
+    box-shadow: 0rem 0rem 0.75rem rgba(0, 0, 0, 0.2);
+    border-left: 0.3rem solid $border-light;
+    border-right: 0.3rem solid $border-light;
+    section {
+        text-align: center;
+        width: fit-content;
+        margin: auto;
+        padding-bottom: 5rem;
+        p {
+            margin: 7.5px 0;
+        }
+        span {
+            font-style: italic;
+            margin-right: 5px;
+        }
+        .game-cover {
+            width: fit-content;
+            margin-top: 550px;
+            img {
+                width: 40rem; 
+                border: 0.5rem solid $main;
+            }
+        }
+    }
+}
+
+* {margin: 0; text-decoration: none;}
+
+body {
+    background-color: $bg-light;
+    font-family: Anton;
+    height: 100vh;
+}
+
+.darkMode {
+    background-color: $bg-dark;
+    nav {
+        background-color: $bg-menu-dark;
+        border-color: $border-dark;
+        a {
+            &:hover{
+                background-color: $selected-dark;
+                border-bottom: 0.3rem solid $main;
+            }
+        }
+        
+        .selected {
+            background-color: $selected-dark;
+        }
+    }
+    footer {
+        background-color: $bg-menu-dark;
+        border-color: $border-dark;
+    }
+    .content {
+        background-color: $bg-content-dark;
+        border-color: $border-dark;
+    }
+}
+
 nav {
     width: 100%;
     background-color: $bg-menu-light;
@@ -87,6 +118,35 @@ nav {
             background-color: $selected-light;
             border-bottom: 0.3rem solid $main;
         }
+        div {
+            font-family: anton;
+            float: left;
+            color: $main;
+            height: $height;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            p {
+                font-size: 1rem;
+            }
+            button {
+                padding: 0;
+                margin: 0;
+                height: 2rem;
+                background: none;
+                width: 5rem;
+                border-radius: 0.5rem;
+                border: 0.3rem solid $main;
+                .btn-knob {
+                    border-radius: 0.2rem;
+                    transition: 500ms;
+                    height: 100%;
+                    width: 2rem;
+                    background-color: $main;
+                }
+            }
+        }
+
         a {
             color: $main;
             float: left;
@@ -115,54 +175,11 @@ nav {
 }
 
 .content {
-    background-color: $bg-content-light;
-    width: 50vw;
-    margin: auto;
-    height: 80vh;
-    overflow: scroll;
-    color: $main;
-    padding: 2rem;
-    font-size: 1.5rem;
-    box-shadow: 0rem 0rem 0.75rem rgba(0, 0, 0, 0.2);
-    border-left: 0.3rem solid $border-light;
-    border-right: 0.3rem solid $border-light;
-    section {
-        text-align: center;
-        width: fit-content;
-        margin: auto;
-        p {
-            margin: 7.5px 0;
-        }
-        span {
-            font-style: italic;
-            margin-right: 5px;
-        }
-        .game-cover {
-            width: fit-content;
-            margin-top: 550px;
-            img {
-                width: 40rem; 
-                border: 0.5rem solid $main;
-            }
-        }
-    }
+    @include content-template;
 }
 
 .content-qna {
-    background-color: $bg-content-light;
-    width: 50vw;
-    margin: auto;
-    height: 80vh;
-    overflow: scroll;
-    color: $main;
-    padding: 2rem;
-    box-shadow: 0rem 0rem 0.75rem rgba(0, 0, 0, 0.2);
-    border-left: 0.3rem solid $border-light;
-    border-right: 0.3rem solid $border-light;
     section {
-        text-align: center;
-        width: fit-content;
-        margin: auto;
         display: grid;
         grid-template-columns: 60% 40%;
         width: 100%;
@@ -190,20 +207,8 @@ nav {
 }
 
 .content-contact {
-    background-color: $bg-content-light;
-    width: 50vw;
-    margin: auto;
-    height: 80vh;
-    overflow: scroll;
-    color: $main;
-    padding: 2rem;
-    font-size: 1.25rem;
-    box-shadow: 0rem 0rem 0.75rem rgba(0, 0, 0, 0.2);
-    border-left: 0.3rem solid $border-light;
-    border-right: 0.3rem solid $border-light;
     section {
         width: 60%;
-        margin: auto;
         div {
             align-self: center;
             padding: 2rem;
@@ -221,8 +226,6 @@ footer {
     width: 100%;
     height: $height;
     border-top: 0.3rem solid $border-light;
-    position: absolute;
-    bottom: 0;
     text-align: center;
     background-color: $bg-menu-light;
     display: flex;
@@ -236,3 +239,25 @@ footer {
     }
 }
 
+@media (max-width: 1000px) {
+    nav {
+        height: 3rem;
+        div a {
+            height: 3rem;
+            font-size: 1rem;
+            padding: 0 0.5rem;
+            margin: 0;
+            img {
+                display: none;
+            }
+            p {
+                line-height: 3rem;
+            }
+        }
+    }
+    .content {
+        width: 100% !important;
+        font-size: 1rem;
+        padding: 0;
+    }
+}
