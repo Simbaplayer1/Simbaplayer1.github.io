@@ -1,3 +1,18 @@
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(244, 74, 74);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  cursor: grab;
+  background: color-mix(in srgb, rgb(244, 74, 74) 95%, black 5%);
+  border-radius: 10px;
+}
+
 * {
   margin: 0;
   text-decoration: none;
@@ -6,6 +21,7 @@
 body {
   background-color: rgb(255, 241, 219);
   font-family: Anton;
+  height: 100vh;
 }
 
 .darkMode {
@@ -31,21 +47,6 @@ body {
   border-color: #524e47;
 }
 
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgb(244, 74, 74);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  cursor: grab;
-  background: color-mix(in srgb, rgb(244, 74, 74) 95%, black 5%);
-  border-radius: 10px;
-}
-
 nav {
   width: 100%;
   background-color: color-mix(in srgb, rgb(255, 241, 219) 90%, black 10%);
@@ -63,9 +64,38 @@ nav div .selected {
   background-color: color-mix(in srgb, rgb(255, 241, 219) 90%, black 10%);
   border-bottom: 0.3rem solid rgb(244, 74, 74);
 }
+nav div div {
+  font-family: anton;
+  float: left;
+  color: rgb(244, 74, 74);
+  height: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+nav div div p {
+  font-size: 1rem;
+}
+nav div div button {
+  padding: 0;
+  margin: 0;
+  height: 2rem;
+  background: none;
+  width: 5rem;
+  border-radius: 0.5rem;
+  border: 0.3rem solid rgb(244, 74, 74);
+}
+nav div div button .btn-knob {
+  border-radius: 0.2rem;
+  transition: 500ms;
+  height: 100%;
+  width: 2rem;
+  background-color: rgb(244, 74, 74);
+}
 nav div a {
   color: rgb(244, 74, 74);
   float: left;
+  margin-right: 1rem;
   font-size: 2rem;
   padding: 0 2rem;
   height: 5rem;
@@ -90,10 +120,9 @@ nav div .logo:hover {
 
 .content {
   background-color: color-mix(in srgb, rgb(255, 241, 219) 90%, white 10%);
-  width: 50vw;
+  width: 60%;
   margin: auto;
-  height: 80vh;
-  overflow: scroll;
+  min-height: 70vh;
   color: rgb(244, 74, 74);
   padding: 2rem;
   font-size: 1.5rem;
@@ -106,6 +135,7 @@ nav div .logo:hover {
   width: -moz-fit-content;
   width: fit-content;
   margin: auto;
+  padding-bottom: 5rem;
 }
 .content section p {
   margin: 7.5px 0;
@@ -124,23 +154,7 @@ nav div .logo:hover {
   border: 0.5rem solid rgb(244, 74, 74);
 }
 
-.content-qna {
-  background-color: color-mix(in srgb, rgb(255, 241, 219) 90%, white 10%);
-  width: 50vw;
-  margin: auto;
-  height: 80vh;
-  overflow: scroll;
-  color: rgb(244, 74, 74);
-  padding: 2rem;
-  box-shadow: 0rem 0rem 0.75rem rgba(0, 0, 0, 0.2);
-  border-left: 0.3rem solid #d9cdba;
-  border-right: 0.3rem solid #d9cdba;
-}
 .content-qna section {
-  text-align: center;
-  width: -moz-fit-content;
-  width: fit-content;
-  margin: auto;
   display: grid;
   grid-template-columns: 60% 40%;
   width: 100%;
@@ -165,22 +179,8 @@ nav div .logo:hover {
   font-size: 1.35rem;
 }
 
-.content-contact {
-  background-color: color-mix(in srgb, rgb(255, 241, 219) 90%, white 10%);
-  width: 50vw;
-  margin: auto;
-  height: 80vh;
-  overflow: scroll;
-  color: rgb(244, 74, 74);
-  padding: 2rem;
-  font-size: 1.25rem;
-  box-shadow: 0rem 0rem 0.75rem rgba(0, 0, 0, 0.2);
-  border-left: 0.3rem solid #d9cdba;
-  border-right: 0.3rem solid #d9cdba;
-}
 .content-contact section {
   width: 60%;
-  margin: auto;
 }
 .content-contact section div {
   align-self: center;
@@ -197,8 +197,6 @@ footer {
   width: 100%;
   height: 5rem;
   border-top: 0.3rem solid #d9cdba;
-  position: absolute;
-  bottom: 0;
   text-align: center;
   background-color: color-mix(in srgb, rgb(255, 241, 219) 90%, black 10%);
   display: flex;
@@ -211,4 +209,27 @@ footer div {
 footer div p {
   color: rgb(244, 74, 74);
   font-size: 1rem;
+}
+
+@media (max-width: 1000px) {
+  nav {
+    height: 3rem;
+  }
+  nav div a {
+    height: 3rem;
+    font-size: 1rem;
+    padding: 0 0.5rem;
+    margin: 0;
+  }
+  nav div a img {
+    display: none;
+  }
+  nav div a p {
+    line-height: 3rem;
+  }
+  .content {
+    width: 100% !important;
+    font-size: 1rem;
+    padding: 0;
+  }
 }/*# sourceMappingURL=style.css.map */
